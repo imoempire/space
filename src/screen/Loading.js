@@ -5,21 +5,21 @@ import { auth } from '../../config/Key';
 export default function Loading({ navigation }) {
 
 
-   useEffect(()=>{
-      auth.onAuthStateChanged((user)=>{
-         if (user){
-            navigation.replace("HomeScreen")
-         }else{
-            navigation.replace("SignUp")
-         }
-      })
-   })
+   // useEffect(()=>{
+   //    auth.onAuthStateChanged((user)=>{
+   //       if (user){
+   //          navigation.replace("HomeScreen")
+   //       }else{
+   //          navigation.replace("SignUp")
+   //       }
+   //    })
+   // })
 
-   // useEffect( ()=>
-   //    setTimeout(() => {
-   //            navigation.navigate('SignUp')
-   //          }, 1000)
-   // )
+   useEffect( ()=>
+      setTimeout(() => {
+              navigation.navigate('SignUp')
+            }, 1000)
+   )
 
   return (
     <SafeAreaView style={styles.container}>

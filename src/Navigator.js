@@ -7,6 +7,7 @@ import HomeScreen from './screen/HomeScreen';
 import Loading from './screen/Loading';
 import SignIn from './screen/SignIn';
 import SignUp from './screen/SignUp'
+import Welcome from './screen/Welcome';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ const Navigator = () => {
    return (
       <NavigationContainer>
          <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Welcome" component={Welcome} />
             <Stack.Screen name="Loading" component={Loading} />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="SignIn" component={SignIn} />

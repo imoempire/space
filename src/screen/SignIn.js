@@ -3,7 +3,6 @@ import { useFonts } from 'expo-font';
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { auth } from '../../config/Key';
-import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -64,11 +63,6 @@ const SignIn = () => {
 
          <View style={{justifyContent: 'center', right: 0}}>
 
-         {
-
-
-         }
-
          <TouchableOpacity onPress={seePassword} 
           style={{backgroundColor: 'green', padding: 5, borderRadius: 10}}>
          <Ionicons name={name} size={24} color="black" />
@@ -83,6 +77,14 @@ const SignIn = () => {
             </TouchableOpacity>
                <Text>Forget Password?</Text>
          </View>
+         <View style={styles.button}>
+             <Text>Create an account?</Text>
+          <TouchableOpacity onPress={()=>navigate("SignUp")} style={styles.signBtn}>
+            <Text style={{ marginHorizontal: 20, color: "white" }}>
+              Sign Up
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
    </SafeAreaView>
    )
@@ -115,4 +117,16 @@ const styles = StyleSheet.create({
       height: 50,
       borderBottomWidth: 1
    },
+   button: {
+      flexDirection: "row",
+      marginVertical: 10,
+      padding: 15,
+      alignItems: 'center',
+   },
+   signBtn:{
+      backgroundColor: 'blue', 
+      marginHorizontal: 10,
+      padding: 7,
+      borderRadius: 7,
+    }
 })

@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 
-const info = ''
+// const info = ''
 
 
 export const Data = [
@@ -91,51 +91,11 @@ export const Data = [
    }
 ];
 
-export const RelationData = [
-   { 
-     image: require('../../assets/image.png'), 
-     id: '1', 
-     title: 'How To Sack The Sch Head', 
-     author: 'James', 
-     date: '10/02/22', 
-     likes: '290'
-   },
-   { 
-      image: require('../../assets/image.png'), 
-     id: '2', 
-     title: 'Take Over now', 
-     author: 'Angel', 
-     date: '10/02/22', 
-     likes: '262'
-   },
-   { 
-     image: require('../../assets/image.png'), 
-     id: '3', 
-     title: 'Power of Voodo', 
-     author: 'Margarita', 
-     date: '10/02/22', 
-     likes: '100'
-   },
-   { 
-     image: require('../../assets/image.png'), 
-     id: '4', 
-     title: 'Kings of the Hill', 
-     author: 'Angel', 
-     date: '10/02/22', 
-     likes: '200'
-   },
-   { image: require('../../assets/image.png'), 
-     id: '5', 
-     title: 'Down-off', 
-     author: 'Margarita',
-     date: '10/02/22', 
-     likes: '202'
-   }
-]
 
 export const HomeTab = [
-  {title: 'Fam', id: '2', image: require('../../assets/image.png')},
-  {title: 'Relation', id: '1', image: require('../../assets/image.png')},
-  {title: 'Love', id: '3', image: require('../../assets/image.png')}
+  {title: 'Family', id: '2', image: require('../../assets/image.png')},
+  {title: 'Drama', id: '1', image: require('../../assets/image.png')},
+  {title: 'Love', id: '3', image: require('../../assets/image.png')},
+  {title: 'Comedy', id: '5', image: require('../../assets/image.png')}
 ] 
 

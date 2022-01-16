@@ -26,9 +26,9 @@ const SignUp = ({navigation}) => {
           navigation.replace("HomeScreen")
         }
       })
-  
       return unsubscribe
     }, [])
+
 
     const handleSignUp = () => {
       auth
@@ -78,7 +78,7 @@ const SignUp = ({navigation}) => {
           </TouchableOpacity>
           <View style={styles.button}>
              <Text>Already have an account?</Text>
-          <TouchableOpacity onPress={()=>navigate("SignIn")}>
+          <TouchableOpacity onPress={()=>navigate("SignIn")} style={styles.signBtn}>
             <Text style={{ marginHorizontal: 20, color: "white" }}>
               Sign in
             </Text>
@@ -119,11 +119,11 @@ const styles = StyleSheet.create({
   },
   SignUp: {
     alignItems: "center",
-    backgroundColor: "green",
+    backgroundColor: "blue",
     marginVertical: 20,
     marginHorizontal: 100,
     padding: 10,
-    borderRadius: 20,
+    borderRadius: 7,
   },
   TextInput: {
     // width: '100%',
@@ -138,14 +138,18 @@ const styles = StyleSheet.create({
    btns: {
      marginVertical: 10,
     backgroundColor: "red",
-    borderRadius: 10,
+    borderRadius: 7,
     padding: 10,
   },
   button: {
    flexDirection: "row",
    marginVertical: 10,
-  backgroundColor: "green",
-  borderRadius: 10,
-  padding: 10,
+   padding: 10,
 },
+signBtn:{
+    backgroundColor: 'green', 
+    marginHorizontal: 10,
+    padding: 3,
+    borderRadius: 7,
+  }
 });

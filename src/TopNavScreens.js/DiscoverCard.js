@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   FlatList,
@@ -6,21 +7,24 @@ import {
   Text,
   View,
   Dimensions,
+  TouchableOpacity
 } from "react-native";
 const { width } = Dimensions.get("window");
 
 const CARD_WIDTH = width * 0.3;
 const IMAGE_CONTAINER_WIDTH = CARD_WIDTH;
 
-const DiscoverCard = ({Data}) => {
+const DiscoverCard = ({Data, main}) => {
+  const {navigate} = useNavigation();
+  console.log(main);
   return (
     <View>
       <FlatList
       horizontal={true}
-        data={Data}
+        data={main}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.blogs}>
+          <TouchableOpacity style={styles.blogs} onPress={()=>navigate('Post', {item: item})}>
             <View>
               <Image
                 style={{ width: 130, height: 100, borderRadius: 20 }}
@@ -32,12 +36,8 @@ const DiscoverCard = ({Data}) => {
               <Text>{item.title}</Text>
                </View>
               <Text>♥{item.likes}</Text>
-              {/* <View style={{ flexDirection: "column" }}>
-                <Text>{item.date}</Text>
-                <Text style={{ marginHorizontal: 20 }}>By {item.author}</Text>
-              </View> */}
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>

@@ -1,45 +1,36 @@
 import React from "react";
 import { TextInput, SafeAreaView, StyleSheet, Text, View, ScrollView
 } from "react-native";
-import TopNav from "../TopNavScreens.js/TopNav";
 import { FontAwesome } from "@expo/vector-icons";
 import DiscoverCard from "../TopNavScreens.js/DiscoverCard";
-import { RelationData } from "../Components/Data";
+import { Data } from "../Components/Data";
 
 const Discover = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.Title}>
-        <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Discover</Text>
-        <View style={styles.Search}>
-          <FontAwesome
-            style={{ marginHorizontal: 10 }}
-            name="search"
-            size={24}
-            color="black"
-          />
-          <TextInput placeholder="search blogs" />
-        </View>
+        <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Discover Stories</Text>
+        
       </View>
 
       <ScrollView>
       <View>
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Fam</Text>
+        <View style={{ alignItems: "center", marginVertical: 10,  backgroundColor: 'black', padding: 5, }}>
+          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Family</Text>
         </View>
-        <DiscoverCard Data={RelationData} />
+        <DiscoverCard  main={Data} />
       </View>
       <View>
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Love</Text>
+        <View style={{ alignItems: "center", marginVertical: 10,  backgroundColor: 'black', padding: 5, }}>
+          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Drama</Text>
         </View>
-        <DiscoverCard Data={RelationData} />
+        <DiscoverCard  main={Data} />
       </View>
       <View>
-        <View style={{ alignItems: "center", marginVertical: 10 }}>
-          <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Relation</Text>
+        <View style={{ alignItems: "center", marginVertical: 10, backgroundColor: 'black', padding: 5, }}>
+          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Comedy</Text>
         </View>
-        <DiscoverCard Data={RelationData} />
+        <DiscoverCard main={Data} />
       </View>
       </ScrollView>
     </SafeAreaView>

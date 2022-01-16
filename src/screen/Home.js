@@ -9,6 +9,21 @@ import { HomeTab } from '../Components/Data'
 
 const Home = () => {
 
+   // Searching 
+
+   // const handleSearchResults=()=>{
+   //    const all = Data;
+   //    const filtered = all.filter((blogs)=>
+   //    blogs.)
+   // }
+
+   // const handleSearch = (e) => {
+   //    e.preventDefault();
+   //    handleSearchResults();
+   // }
+
+
+
    const [loaded] = useFonts({
       Aquire: require('../../assets/font/Aquire.otf')
    });

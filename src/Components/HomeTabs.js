@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { FlatList, Image, StyleSheet, Text, View } from "react-native";
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const HomeTabs = ({ Data }) => {
+  const {navigate} = useNavigation();
   return (
     <View>
       <FlatList
@@ -9,7 +11,7 @@ const HomeTabs = ({ Data }) => {
         data={Data}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.blogs}>
+          <TouchableOpacity style={styles.blogs} onPress={()=>navigate('Discover')}>
             <View>
               <Image
                 style={{ width: 60, height: 50 }}
@@ -19,7 +21,7 @@ const HomeTabs = ({ Data }) => {
             <View>
               <Text style={{color: 'white'}}>{item.title}</Text>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -34,6 +36,6 @@ const styles = StyleSheet.create({
       backgroundColor: 'black',
       borderRadius: 10,
       padding: 10,
-      marginHorizontal: 10,
+      marginHorizontal: 5,
     },
 });
