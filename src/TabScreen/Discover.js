@@ -3,17 +3,19 @@ import { TextInput, SafeAreaView, StyleSheet, Text, View, ScrollView
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import DiscoverCard from "../TopNavScreens.js/DiscoverCard";
-import { Data } from "../Components/Data";
+import { Data, HomeTab } from "../Components/Data";
+import HomeTabs from "../Components/HomeTabs";
+import TopNav from "../TopNavScreens.js/TopNav";
 
 const Discover = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.Title}>
-        <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Discover Stories</Text>
-        
+        <Text style={{ fontFamily: "Aquire", fontSize: 20 }}>Discover</Text>
       </View>
-
-      <ScrollView>
+        <TopNav/>
+{/* 
+      <ScrollView style={{flex: 1}}>
       <View>
         <View style={{ alignItems: "center", marginVertical: 10,  backgroundColor: 'black', padding: 5, }}>
           <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Family</Text>
@@ -22,17 +24,17 @@ const Discover = () => {
       </View>
       <View>
         <View style={{ alignItems: "center", marginVertical: 10,  backgroundColor: 'black', padding: 5, }}>
-          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Drama</Text>
+          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Love</Text>
         </View>
         <DiscoverCard  main={Data} />
       </View>
       <View>
         <View style={{ alignItems: "center", marginVertical: 10, backgroundColor: 'black', padding: 5, }}>
-          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Comedy</Text>
+          <Text style={{ fontFamily: "Aquire", fontSize: 20, color: 'white' }}>Drama</Text>
         </View>
         <DiscoverCard main={Data} />
       </View>
-      </ScrollView>
+      </ScrollView> */}
     </SafeAreaView>
   );
 };
@@ -44,16 +46,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   Title: {
-    marginVertical: 10,
+    flex: .05,
+    marginVertical: 15,
     alignItems: "center",
-  },
-  Search: {
-    flexDirection: "row",
-    borderWidth: 1,
-    width: "90%",
-    borderRadius: 20,
-    padding: 5,
-    marginVertical: 20,
-    backgroundColor: "white",
   },
 });

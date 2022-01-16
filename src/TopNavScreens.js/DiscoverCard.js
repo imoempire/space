@@ -14,13 +14,11 @@ const { width } = Dimensions.get("window");
 const CARD_WIDTH = width * 0.3;
 const IMAGE_CONTAINER_WIDTH = CARD_WIDTH;
 
-const DiscoverCard = ({Data, main}) => {
+const DiscoverCard = ({main}) => {
   const {navigate} = useNavigation();
-  console.log(main);
   return (
     <View>
       <FlatList
-      horizontal={true}
         data={main}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
@@ -35,7 +33,10 @@ const DiscoverCard = ({Data, main}) => {
                <View style={styles.topCarsImage}>
               <Text>{item.title}</Text>
                </View>
+               <View style={{flexDirection: "row"}}>
               <Text>♥{item.likes}</Text>
+              <Text>{item.author}</Text>
+               </View>
             </View>
           </TouchableOpacity>
         )}
@@ -49,12 +50,12 @@ export default DiscoverCard;
 const styles = StyleSheet.create({
   blogs: {
     flex: 1,
-   //  marginVertical: 20,
+    marginVertical: 10,
     backgroundColor: 'white',
     borderRadius: 10,
     padding: 10,
     marginHorizontal: 10,
-    width: 150,
+    flexDirection: "row",
   },
   list: {
     justifyContent: "center",
