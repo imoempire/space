@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 const Post = (props) => {
    const navigation = useNavigation();
@@ -25,6 +26,7 @@ const Post = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style={{background: 'red'}} />
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.arrow}

@@ -10,44 +10,50 @@ import {
   View,
 } from "react-native";
 import { auth } from "../../config/Key";
+import { StackActions } from "@react-navigation/native";
 
 
+const SignUp = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-const SignUp = ({navigation}) => {
-   
-   
-   const [email, setEmail] = useState("");
-   const [password, setPassword] = useState("");
-   
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigation.replace("HomeScreen");
+      }
+    });
+    return unsubscribe;
+  }, []);
 
-   useEffect(() => {
-      const unsubscribe = auth.onAuthStateChanged(user => {
-        if (user) {
-          navigation.replace("HomeScreen")
-        }
-      })
-      return unsubscribe
-    }, [])
-
-
-    const handleSignUp = () => {
+  const handleSignUp = () => {
+    try {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then(userCredentials => {
+        .then((userCredentials) => {
           const user = userCredentials.user;
-          console.log('Registered with:', user.email);
+          console.log("Registered with:", user.email);
         })
-        .catch(error => alert(error.message))
+        .catch((error) => alert(error.message));
+        if(user){
+          navigation.dispatch(
+          StackActions.replace('HomeScreen', {
+            token: signInRes.data.token,
+          })
+        );
+        }
+    } catch {
+      (error) => console.log(error.message);
     }
+  };
 
-   const { navigate } = useNavigation();
-   const [loaded] = useFonts({
-     Aquire: require("../../assets/font/Aquire.otf"),
-   });
-   if (!loaded) {
-     return null;
-   }
-
+  const { navigate } = useNavigation();
+  const [loaded] = useFonts({
+    Aquire: require("../../assets/font/Aquire.otf"),
+  });
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -70,20 +76,20 @@ const SignUp = ({navigation}) => {
           onChangeText={(password) => setPassword(password)}
         />
         <View>
-          <TouchableOpacity
-            style={styles.SignUp}
-            onPress={handleSignUp}
-          >
+          <TouchableOpacity style={styles.SignUp} onPress={()=>navigation.navigate('HomeScreen')}>
             <Text style={{ color: "white" }}>Sign up</Text>
           </TouchableOpacity>
           <View style={styles.button}>
-             <Text>Already have an account?</Text>
-          <TouchableOpacity onPress={()=>navigate("SignIn")} style={styles.signBtn}>
-            <Text style={{ marginHorizontal: 20, color: "white" }}>
-              Sign in
-            </Text>
-          </TouchableOpacity>
-        </View>
+            <Text>Already have an account?</Text>
+            <TouchableOpacity
+              onPress={() => navigate("SignIn")}
+              style={styles.signBtn}
+            >
+              <Text style={{ marginHorizontal: 20, color: "white" }}>
+                Sign in
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
       <View style={styles.btn}>
@@ -94,9 +100,6 @@ const SignUp = ({navigation}) => {
             </Text>
           </TouchableOpacity>
         </View>
-
-        
-
       </View>
     </SafeAreaView>
   );
@@ -134,22 +137,22 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-   },
-   btns: {
-     marginVertical: 10,
+  },
+  btns: {
+    marginVertical: 10,
     backgroundColor: "red",
     borderRadius: 7,
     padding: 10,
   },
   button: {
-   flexDirection: "row",
-   marginVertical: 10,
-   padding: 10,
-},
-signBtn:{
-    backgroundColor: 'green', 
+    flexDirection: "row",
+    marginVertical: 10,
+    padding: 10,
+  },
+  signBtn: {
+    backgroundColor: "green",
     marginHorizontal: 10,
     padding: 3,
     borderRadius: 7,
-  }
+  },
 });
